@@ -2,14 +2,45 @@ import React from 'react'
 import PieChart from '../../components/Charts/Pie'
 import DonutChart from '../../components/Charts/Donut'
 import BarChart from '../../components/Charts/Bar'
-import Card from '../../components/Card'
 import AreaChart from '../../components/Charts/Area'
 import LineChart from '../../components/Charts/Line'
+import Card from '../../components/Card'
+import Count from '../../components/Counters'
 import styles from './style.module.css'
 
 const DashboardLayout = () => {
   return (
     <div className={styles.dashboardLayoutWrapper}>
+      {/* Example: Count components in one row */}
+      <div className={styles.cardQuarter}>
+        <Count 
+          count={12547}
+          heading="Total Users"
+          description="Active users registered on the platform"
+        />
+      </div>
+      <div className={styles.cardQuarter}>
+        <Count 
+          count={8924}
+          heading="Revenue"
+          description="Total revenue generated this month"
+        />
+      </div>
+      <div className={styles.cardQuarter}>
+        <Count 
+          count={456}
+          heading="Orders"
+          description="New orders placed today"
+        />
+      </div>
+      <div className={styles.cardQuarter}>
+        <Count 
+          count={95.8}
+          heading="Success Rate"
+          description="System uptime percentage"
+        />
+      </div>
+
       {/* Example: Bar Chart taking full row */}
       <div className={styles.cardFull}>
         <Card heading="Bar Chart" description="This bar chart takes the full row width">

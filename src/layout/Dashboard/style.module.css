@@ -1,0 +1,53 @@
+.dashboardLayoutWrapper {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+    padding: 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Card width classes for flexible layout */
+.cardFull {
+    grid-column: span 12; /* Full row - 1 card */
+}
+
+.cardHalf {
+    grid-column: span 6; /* Half row - 2 cards per row */
+}
+
+.cardThird {
+    grid-column: span 4; /* Third row - 3 cards per row */
+}
+
+.cardQuarter {
+    grid-column: span 3; /* Quarter row - 4 cards per row */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .cardThird {
+        grid-column: span 6; /* 2 cards per row on medium screens */
+    }
+    
+    .cardQuarter {
+        grid-column: span 6; /* 2 cards per row on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboardLayoutWrapper {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .cardFull,
+    .cardHalf,
+    .cardThird,
+    .cardQuarter {
+        grid-column: span 1; /* All cards full width on mobile */
+    }
+}

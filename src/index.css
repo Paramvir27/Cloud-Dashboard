@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  /* Light Theme Colors */
+  --primary-color: #c03535;
+  
+  /* Dark Theme Variables */
+  --bg-primary: #0f0f23;          /* Main background */
+  --bg-secondary: #1a1a2e;        /* Card/component backgrounds */
+  --bg-tertiary: #16213e;         /* Elevated surfaces */
+  --bg-hover: #252547;            /* Hover states */
+  
+  /* Text Colors */
+  --text-primary: #ffffff;        /* Primary text */
+  --text-secondary: #b4b4c7;      /* Secondary text */
+  --text-muted: #8b8ba3;          /* Muted/disabled text */
+  --text-inverse: #0f0f23;        /* Text on light backgrounds */
+  
+  /* Accent Colors (Blue Theme) */
+  --accent-primary: #3b82f6;      /* Primary blue */
+  --accent-secondary: #2563eb;    /* Darker blue */
+  --accent-light: #60a5fa;        /* Light blue */
+  --accent-lighter: #93c5fd;      /* Very light blue */
+  --accent-hover: #1d4ed8;        /* Blue hover state */
+  
+  /* Border Colors */
+  --border-primary: #374151;      /* Main borders */
+  --border-secondary: #4b5563;    /* Secondary borders */
+  --border-accent: #3b82f6;       /* Accent borders */
+  
+  /* Status Colors */
+  --success: #10b981;             /* Success/positive */
+  --warning: #f59e0b;             /* Warning */
+  --error: #ef4444;               /* Error/danger */
+  --info: #3b82f6;                /* Information */
+  
+  /* Chart Colors */
+  --chart-primary: #3b82f6;       /* Blue */
+  --chart-secondary: #8b5cf6;     /* Purple */
+  --chart-tertiary: #06b6d4;      /* Cyan */
+  --chart-quaternary: #10b981;    /* Green */
+  --chart-quinary: #f59e0b;       /* Orange */
+  --chart-senary: #ef4444;        /* Red */
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;   /* 4px */
+  --spacing-sm: 0.5rem;    /* 8px */
+  --spacing-md: 1rem;      /* 16px */
+  --spacing-lg: 1.5rem;    /* 24px */
+  --spacing-xl: 2rem;      /* 32px */
+  --spacing-2xl: 3rem;     /* 48px */
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;    /* 4px */
+  --radius-md: 0.5rem;     /* 8px */
+  --radius-lg: 0.75rem;    /* 12px */
+  --radius-xl: 1rem;       /* 16px */
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}

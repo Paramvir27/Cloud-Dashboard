@@ -21,7 +21,7 @@ const LineChartComponent = ({ data }) => {
           opacity={0.3}
         />
         <XAxis 
-          dataKey="name" 
+          dataKey="time" 
           axisLine={{ stroke: 'var(--border-primary)' }}
           tickLine={{ stroke: 'var(--border-primary)' }}
           tick={{ fill: 'var(--text-secondary)', fontSize: 12 }}

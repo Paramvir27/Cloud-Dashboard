@@ -37,12 +37,12 @@
   --info: #3b82f6;                /* Information */
   
   /* Chart Colors */
-  --chart-primary: #3b82f6;       /* Blue */
+  --chart-primary: #4b90ff;       /* Blue */
   --chart-secondary: #8b5cf6;     /* Purple */
   --chart-tertiary: #06b6d4;      /* Cyan */
-  --chart-quaternary: #10b981;    /* Green */
-  --chart-quinary: #f59e0b;       /* Orange */
-  --chart-senary: #ef4444;        /* Red */
+  --chart-quaternary: #2ea162;    /* Green */
+  --chart-quinary: #ffbb45;       /* Orange */
+  --chart-senary: #ff5b5b;        /* Red */
   
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
@@ -82,4 +82,17 @@ body {
 #root {
   width: 100%;
   height: 100%;
+}
+
+/* Force white color for chart legends */
+.recharts-legend-wrapper {
+  color: var(--text-primary) !important;
+}
+
+.recharts-legend-wrapper * {
+  color: var(--text-primary) !important;
+}
+
+.recharts-legend-item-text {
+  color: var(--text-primary) !important;
 }

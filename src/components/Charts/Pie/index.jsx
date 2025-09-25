@@ -3,11 +3,11 @@ import { Pie, PieChart, ResponsiveContainer, Tooltip, Cell, Legend } from 'recha
 
 const COLORS = [
   'var(--chart-primary)',    // Blue
-  'var(--chart-secondary)',  // Purple
-  'var(--chart-tertiary)',   // Cyan
+  'var(--text-muted)',       // Grey
   'var(--chart-quaternary)', // Green
   'var(--chart-quinary)',    // Orange
-  'var(--chart-senary)',     // Red
+  'var(--chart-secondary)',  // Purple
+  'var(--chart-tertiary)',   // Cyan
 ];
 
 export default function PieChartComponent({ data }) {

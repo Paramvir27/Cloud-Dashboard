@@ -3,9 +3,11 @@ import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip, Legend } from 'recha
 
 const COLORS = [
   'var(--chart-primary)',    // Blue
+  'var(--chart-quinary)',    // Orange
   'var(--chart-secondary)',  // Purple
-  'var(--chart-tertiary)',   // Cyan
+  'var(--chart-senary)',     // Red
   'var(--chart-quaternary)', // Green
+  'var(--chart-tertiary)',   // Cyan
 ];
 
 export default function DonutChartComponent({ data }) {
@@ -26,7 +28,7 @@ export default function DonutChartComponent({ data }) {
             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
           ))}
         </Pie>
-        <Tooltip 
+        <Tooltip
           contentStyle={{
             backgroundColor: 'var(--bg-tertiary)',
             border: '1px solid var(--border-primary)',
@@ -34,11 +36,11 @@ export default function DonutChartComponent({ data }) {
             color: 'var(--text-primary)',
             boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.5)'
           }}
-          labelStyle={{ 
+          labelStyle={{
             color: 'var(--text-primary)',
             fontWeight: '500'
           }}
-          itemStyle={{ 
+          itemStyle={{
             color: 'var(--text-primary)',
             fontSize: '14px'
           }}

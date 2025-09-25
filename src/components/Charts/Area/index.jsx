@@ -21,7 +21,7 @@ const AreaChartComponent = ({ data }) => {
           opacity={0.3}
         />
         <XAxis
-          dataKey="name"
+          dataKey="time"
           axisLine={{ stroke: 'var(--border-primary)' }}
           tickLine={{ stroke: 'var(--border-primary)' }}
           tick={{ fill: 'var(--text-secondary)', fontSize: 12 }}
@@ -58,11 +58,11 @@ const AreaChartComponent = ({ data }) => {
         />
         <Area 
           type="monotone" 
-          dataKey="usage" 
+          dataKey="cpu" 
           stroke="var(--chart-primary)" 
           fill="var(--chart-primary)"
           fillOpacity={0.3}
-          name="Usage (%)"
+          name="CPU Usage (%)"
         />
       </AreaChart>
     </ResponsiveContainer>

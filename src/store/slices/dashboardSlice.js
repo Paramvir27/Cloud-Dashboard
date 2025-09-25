@@ -3,36 +3,40 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   title: 'Cloud Dashboard',
   isLoading: false,
+
+  // Current snapshot counts
   counts: [
     {
-      heading: "Total Resources",
-      description: "Total number of resources across cloud environment",
+      heading: "Total Active Resources",
+      description: "Current total number of resources",
       count: 15,
       size: "1/4",
     },
     {
       heading: "Running EC2 Instances",
-      description: "Number of active EC2 instances currently running",
+      description: "Instances currently running",
       count: 4,
       size: "1/4",
     },
     {
       heading: "Active Lambda Functions",
-      description: "Total number of deployed Lambda functions",
+      description: "Lambda functions currently deployed",
       count: 7,
       size: "1/4",
     },
     {
       heading: "S3 Storage Used",
-      description: "Total storage used across all S3 buckets (in GB)",
-      count: 120,
+      description: "Current storage used across all S3 buckets (GB)",
+      count: 123,
       size: "1/4",
     },
   ],
+
+  // Real-time charts with short-term rolling metrics
   charts: [
     {
       heading: "Resource Distribution",
-      description: "Breakdown of resources by type",
+      description: "Current snapshot of resource types",
       type: "donut",
       size: "1/2",
       data: [
@@ -49,53 +53,82 @@ const initialState = {
       data: [
         { name: "Running", instances: 4 },
         { name: "Stopped", instances: 1 },
-        { name: "Restarting", instances: 0 },
+        { name: "Restarting", instances: 2 },
         { name: "Failed", instances: 0 },
       ],
     },
     {
-      heading: "Overall Resource Usage",
-      description: "Average CPU and Memory usage across EC2 instances",
+      heading: "Average CPU Usage",
+      description: "CPU utilization across EC2 instances (last 1 hour, 5-min intervals)",
       type: "area",
-      size: "1/2",
+      size: "1",
       data: [
-        { name: "Jan", usage: 45 },
-        { name: "Feb", usage: 50 },
-        { name: "Mar", usage: 55 },
-        { name: "Apr", usage: 60 },
-        { name: "May", usage: 48 },
-        { name: "Jun", usage: 52 },
-        { name: "Jul", usage: 58 },
+        { time: "00:00", cpu: 45 },
+        { time: "00:05", cpu: 50 },
+        { time: "00:10", cpu: 52 },
+        { time: "00:15", cpu: 48 },
+        { time: "00:20", cpu: 55 },
+        { time: "00:25", cpu: 53 },
+        { time: "00:30", cpu: 50 },
+        { time: "00:35", cpu: 49 },
+        { time: "00:40", cpu: 51 },
+        { time: "00:45", cpu: 54 },
+        { time: "00:50", cpu: 50 },
+        { time: "00:55", cpu: 48 },
       ],
     },
     {
       heading: "S3 Storage & Requests",
-      description: "Storage growth and requests trend over time",
+      description: "Storage (GB) and requests (last 1 hour, 5-min intervals)",
       type: "line",
       size: "1/2",
       data: [
-        { name: "Jan", storage: 80, requests: 2400 },
-        { name: "Feb", storage: 90, requests: 2600 },
-        { name: "Mar", storage: 100, requests: 3000 },
-        { name: "Apr", storage: 105, requests: 2800 },
-        { name: "May", storage: 110, requests: 3200 },
-        { name: "Jun", storage: 115, requests: 3500 },
-        { name: "Jul", storage: 120, requests: 4000 },
+        { time: "00:00", storage: 85.0, requests: 40 },
+        { time: "00:05", storage: 87.1, requests: 60 },
+        { time: "00:10", storage: 89.2, requests: 120 },
+        { time: "00:15", storage: 89.3, requests: 100 },
+        { time: "00:20", storage: 95.25, requests: 130 },
+        { time: "00:25", storage: 96.4, requests: 140 },
+        { time: "00:30", storage: 100.5, requests: 155 },
+        { time: "00:35", storage: 105.6, requests: 167 },
+        { time: "00:40", storage: 110.65, requests: 143 },
+        { time: "00:45", storage: 115.7, requests: 160 },
+        { time: "00:50", storage: 120.8, requests: 180 },
+        { time: "00:55", storage: 122.9, requests: 190 },
       ],
     },
     {
       heading: "Lambda Invocation Health",
-      description: "Success vs Error invocations across all Lambda functions",
+      description: "Success vs Error invocations (last 15 minutes)",
       type: "pie",
       size: "1/2",
       data: [
-        { name: "Success Invocations", value: 6800 },
-        { name: "Error Invocations", value: 200 },
+        { name: "Success Invocations", value: 320 },
+        { name: "Error Invocations", value: 15 },
       ],
     },
   ],
-  notifications: []
-}
+
+  // Recent notifications / alerts
+  notifications: [
+    {
+      type: "warning",
+      message: "EC2 Instance i-02345 stopped unexpectedly",
+      time: "Just now",
+    },
+    {
+      type: "error",
+      message: "Lambda function 'processData' had 2 failed invocations",
+      time: "5 minutes ago",
+    },
+    {
+      type: "info",
+      message: "S3 bucket 'user-uploads' storage usage reached 119 GB",
+      time: "10 minutes ago",
+    },
+  ],
+};
+
 
 export const dashboardSlice = createSlice({
   name: 'dashboard',

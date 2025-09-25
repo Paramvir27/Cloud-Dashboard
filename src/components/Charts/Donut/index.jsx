@@ -1,13 +1,6 @@
 import React from 'react';
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts';
 
-const data = [
-  { name: 'Desktop', value: 400 },
-  { name: 'Mobile', value: 300 },
-  { name: 'Tablet', value: 300 },
-  { name: 'Other', value: 200 },
-];
-
 const COLORS = [
   'var(--chart-primary)',    // Blue
   'var(--chart-secondary)',  // Purple
@@ -15,7 +8,7 @@ const COLORS = [
   'var(--chart-quaternary)', // Green
 ];
 
-export default function DonutChartComponent() {
+export default function DonutChartComponent({ data }) {
   return (
     <ResponsiveContainer width="100%" height="100%">
       <PieChart width={400} height={300}>

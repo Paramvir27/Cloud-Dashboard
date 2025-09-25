@@ -1,15 +1,6 @@
 import React from 'react';
 import { Pie, PieChart, ResponsiveContainer, Tooltip, Cell } from 'recharts';
 
-const data01 = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 300 },
-  { name: 'Group C', value: 300 },
-  { name: 'Group D', value: 200 },
-  { name: 'Group E', value: 278 },
-  { name: 'Group F', value: 189 },
-];
-
 const COLORS = [
   'var(--chart-primary)',    // Blue
   'var(--chart-secondary)',  // Purple
@@ -19,19 +10,19 @@ const COLORS = [
   'var(--chart-senary)',     // Red
 ];
 
-export default function PieChartComponent() {
+export default function PieChartComponent({ data }) {
   return (
     <ResponsiveContainer width="100%" height="100%">
       <PieChart width={400} height={300}>
         <Pie
           dataKey="value"
-          data={data01}
+          data={data}
           cx="50%"
           cy="50%"
           outerRadius="80%"
           label={{ fill: 'var(--text-primary)', fontSize: 12 }}
         >
-          {data01.map((entry, index) => (
+          {data.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
           ))}
         </Pie>

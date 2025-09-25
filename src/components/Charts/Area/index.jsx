@@ -1,5 +1,5 @@
 import React from 'react';
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const AreaChartComponent = ({ data }) => {
   return (
@@ -48,10 +48,18 @@ const AreaChartComponent = ({ data }) => {
             fontSize: '14px'
           }}
         />
-        <Area
-          type="monotone"
-          dataKey="usage"
-          stroke="var(--chart-primary)"
+        <Legend 
+          wrapperStyle={{ 
+            color: 'var(--text-primary)',
+            fontSize: '14px',
+            lineHeight: '20px'
+          }}
+          iconType="rect"
+        />
+        <Area 
+          type="monotone" 
+          dataKey="usage" 
+          stroke="var(--chart-primary)" 
           fill="var(--chart-primary)"
           fillOpacity={0.3}
           name="Usage (%)"

@@ -51,8 +51,10 @@ const LineChartComponent = ({ data }) => {
         <Legend 
           wrapperStyle={{ 
             color: 'var(--text-primary)',
-            fontSize: '14px'
+            fontSize: '14px',
+            lineHeight: '20px'
           }}
+          iconType="rect"
         />
         <Line 
           type="monotone" 

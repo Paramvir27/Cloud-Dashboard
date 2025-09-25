@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts';
+import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip, Legend } from 'recharts';
 
 const COLORS = [
   'var(--chart-primary)',    // Blue
@@ -42,6 +42,17 @@ export default function DonutChartComponent({ data }) {
             color: 'var(--text-primary)',
             fontSize: '14px'
           }}
+        />
+        <Legend 
+          layout="vertical"
+          align="right"
+          verticalAlign="middle"
+          wrapperStyle={{ 
+            color: 'var(--text-primary)',
+            fontSize: '14px',
+            lineHeight: '20px'
+          }}
+          iconType="rect"
         />
       </PieChart>
     </ResponsiveContainer>

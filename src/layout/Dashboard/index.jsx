@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import Header from '../../components/Header'
 import ChartComponent from '../../components/Charts'
 import Card from '../../components/Card'
 import Count from '../../components/Counters'
@@ -25,26 +26,30 @@ const DashboardLayout = () => {
   }
 
   return (
-    <div className={styles.dashboardLayoutWrapper}>
-      {/* Render Count components from Redux */}
-      {counts.map((countItem, index) => (
-        <div key={`count-${index}`} className={getSizeClass(countItem.size)}>
-          <Count 
-            count={countItem.count}
-            heading={countItem.heading}
-            description={countItem.description}
-          />
-        </div>
-      ))}
+    <div className={styles.dashboardWrapper}>
+      <Header />
+      
+      <div className={styles.dashboardContentWrapper}>
+        {/* Render Count components from Redux */}
+        {counts.map((countItem, index) => (
+          <div key={`count-${index}`} className={getSizeClass(countItem.size)}>
+            <Count
+              count={countItem.count}
+              heading={countItem.heading}
+              description={countItem.description}
+            />
+          </div>
+        ))}
 
-      {/* Render Chart components from Redux */}
-      {charts.map((chartItem, index) => (
-        <div key={`chart-${index}`} className={getSizeClass(chartItem.size)}>
-          <Card heading={chartItem.heading} description={chartItem.description}>
-            <ChartComponent type={chartItem.type} data={chartItem.data} />
-          </Card>
-        </div>
-      ))}
+        {/* Render Chart components from Redux */}
+        {charts.map((chartItem, index) => (
+          <div key={`chart-${index}`} className={getSizeClass(chartItem.size)}>
+            <Card heading={chartItem.heading} description={chartItem.description}>
+              <ChartComponent type={chartItem.type} data={chartItem.data} />
+            </Card>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

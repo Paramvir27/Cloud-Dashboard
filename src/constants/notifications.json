@@ -1,0 +1,39 @@
+{
+  "notifications": [
+    {
+      "id": 1,
+      "type": "warning",
+      "message": "EC2 Instance i-02345 stopped unexpectedly (1 of 4 running instances affected)",
+      "time": "Just now",
+      "isRead": false
+    },
+    {
+      "id": 2,
+      "type": "error",
+      "message": "Lambda function 'processData' had 2 failed invocations (1 of 8 functions affected)",
+      "time": "5 minutes ago",
+      "isRead": false
+    },
+    {
+      "id": 3,
+      "type": "info",
+      "message": "S3 bucket 'user-uploads' storage usage reached 120 GB (1 of 3 buckets)",
+      "time": "10 minutes ago",
+      "isRead": false
+    }
+  ],
+  "randomNotifications": [
+    {
+      "type": "info",
+      "message": "Auto-scaling group launched new EC2 instance i-98765"
+    },
+    {
+      "type": "warning",
+      "message": "Lambda function 'data-processor' memory usage approaching limit"
+    },
+    {
+      "type": "success",
+      "message": "S3 bucket 'user-uploads' lifecycle policy applied successfully"
+    }
+  ]
+}

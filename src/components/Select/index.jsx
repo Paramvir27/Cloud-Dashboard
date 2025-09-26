@@ -4,7 +4,7 @@ import { ChevronDown, ChevronUp, Check } from 'lucide-react'
 import styles from './style.module.css'
 
 const SelectComponent = ({ 
-  placeholder = "Select an option...", 
+  placeholder = "Select", 
   value, 
   onValueChange, 
   options = [],

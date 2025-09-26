@@ -1,0 +1,26 @@
+[
+  {
+    "heading": "Total Active Resources",
+    "description": "Current total number of resources",
+    "count": 15,
+    "size": "1/4"
+  },
+  {
+    "heading": "Running EC2 Instances",
+    "description": "Instances currently running",
+    "count": 4,
+    "size": "1/4"
+  },
+  {
+    "heading": "Active Lambda Functions",
+    "description": "Lambda functions currently deployed",
+    "count": 8,
+    "size": "1/4"
+  },
+  {
+    "heading": "S3 Storage Used",
+    "description": "Current storage used across all S3 buckets (GB)",
+    "count": 123,
+    "size": "1/4"
+  }
+]

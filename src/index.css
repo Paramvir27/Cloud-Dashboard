@@ -84,6 +84,43 @@ body {
   height: 100%;
 }
 
+/* Custom Scrollbar Styles */
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-primary);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-secondary);
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-secondary);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--bg-hover);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--bg-primary);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-primary) var(--bg-primary);
+}
+
 /* Force white color for chart legends */
 .recharts-legend-wrapper {
   color: var(--text-primary) !important;
@@ -96,3 +133,4 @@ body {
 .recharts-legend-item-text {
   color: var(--text-primary) !important;
 }
+

@@ -67,16 +67,7 @@ export const SkeletonDashboard = () => (
         </div>
       ))}
       
-      {/* Chart skeletons */}
-      <div className={styles.skeletonCardHalf}>
-        <SkeletonCard />
-      </div>
-      <div className={styles.skeletonCardHalf}>
-        <SkeletonCard />
-      </div>
-      <div className={styles.skeletonCardFull}>
-        <SkeletonCard />
-      </div>
+      {/* Chart skeletons - matching real dashboard layout */}
       <div className={styles.skeletonCardHalf}>
         <SkeletonCard />
       </div>

@@ -121,9 +121,12 @@
 
 /* Dashboard skeleton layout */
 .skeletonDashboardWrapper {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100vh;
   background: var(--bg-primary);
+  overflow: hidden;
 }
 
 .skeletonHeader {
@@ -140,13 +143,15 @@
 
 .skeletonContentWrapper {
   width: 100%;
-  height: calc(100vh - 70px);
+  flex-grow: 1;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: min-content;
   gap: 20px;
   padding: 20px;
-  overflow-y: hidden;
+  overflow-y: auto;
   overflow-x: hidden;
+  align-content: start;
 }
 
 /* Grid layout classes matching Dashboard */

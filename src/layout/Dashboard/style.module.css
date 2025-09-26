@@ -1,16 +1,22 @@
 .dashboardContentWrapper {
     width: 100%;
-    height: 100%;
+    flex-grow: 1;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: min-content;
     gap: 20px;
     padding: 20px;
     overflow-y: auto;
     overflow-x: hidden;
+    align-content: start;
 }
 
 .dashboardWrapper {
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 /* Card width classes for flexible layout */

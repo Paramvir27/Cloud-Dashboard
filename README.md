@@ -1,16 +1,30 @@
-# React + Vite
+# Cloud Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A real-time AWS cloud resource monitoring dashboard built with React and Redux. Displays live metrics for EC2 instances, Lambda functions, S3 storage, and system notifications with interactive charts and real-time updates.
 
-Currently, two official plugins are available:
+## Quick Start
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+npm install
+npm run dev
+```
 
-## React Compiler
+## Folder Structure
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```
+src/
+├── components/          # Reusable UI components (Charts, Cards, Toast, etc.)
+├── constants/           # Static data files (charts.json, counters.json, notifications.json)
+├── hooks/              # Custom React hooks for dashboard initialization
+├── layout/             # Layout components for dashboard sections
+├── store/              # Redux store and slices for state management
+└── views/              # Main page components
+```
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Real-time Metrics**: Live counters for active resources, EC2 instances, Lambda functions
+- **Interactive Charts**: Donut, bar, area, line, and pie charts for data visualization
+- **Live Notifications**: Real-time alerts and system notifications
+- **Region Selection**: Multi-region AWS resource monitoring
+- **Responsive Design**: Mobile-friendly dashboard interface

@@ -44,12 +44,7 @@
   font-weight: 700;
   transform: translateY(2px);
   letter-spacing: -0.025em;
-  color: var(--text-primary);
-  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-lighter) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  /* Fallback for browsers that don't support background-clip */
+  color: var(--accent-primary);
   text-shadow: var(--shadow-sm);
 }
 
@@ -141,11 +136,11 @@
   }
   
   .brandTitle {
-    font-size: var(--font-size-lg);
+    display: none;
   }
   
   .brandSubtitle {
-    font-size: 12px;
+    display: none;
   }
   
   .rightSection {

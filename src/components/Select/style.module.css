@@ -87,7 +87,7 @@
   display: flex;
   align-items: center;
   height: 32px;
-  padding: 0 32px 0 var(--spacing-sm);
+  padding: 0 var(--spacing-sm);
   position: relative;
   user-select: none;
   cursor: pointer;
@@ -115,7 +115,7 @@
   position: absolute;
   left: 0;
   width: 24px;
-  display: inline-flex;
+  display: none;
   align-items: center;
   justify-content: center;
   color: var(--accent-primary);

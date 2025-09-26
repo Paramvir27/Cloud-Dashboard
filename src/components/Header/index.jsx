@@ -30,7 +30,7 @@ const Header = ({ onNotificationOpen }) => {
       if (onNotificationOpen) {
         onNotificationOpen()
       }
-      
+
       if (hasUnreadNotifications) {
         dispatch(markAllNotificationsAsRead())
       }
@@ -46,6 +46,7 @@ const Header = ({ onNotificationOpen }) => {
         </div>
       </div>
       <div className={styles.rightSection}>
+        <ThemeToggle />
         <div className={styles.regionSelect}>
           <Select
             value={selectedRegion}
@@ -54,11 +55,10 @@ const Header = ({ onNotificationOpen }) => {
             placeholder="Select region..."
           />
         </div>
-        <ThemeToggle />
         <Popover
           onOpenChange={handlePopoverOpenChange}
           trigger={
-            <button 
+            <button
               className={`${styles.notificationButton} ${hasUnreadNotifications ? styles.hasNotifications : ''}`}
               aria-label="Notifications"
             >

@@ -1,0 +1,11 @@
+.recharts-legend-wrapper {
+  color: var(--text-primary) !important;
+}
+
+.recharts-legend-wrapper * {
+  color: var(--text-primary) !important;
+}
+
+.recharts-legend-item-text {
+  color: var(--text-primary) !important;
+}

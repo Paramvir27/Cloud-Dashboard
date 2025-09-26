@@ -19,7 +19,7 @@ const useInitializeDashboard = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       dispatch(addRealTimeNotification())
-    }, 3000)
+    }, 30000)
 
     return () => clearInterval(interval)
   }, [dispatch])

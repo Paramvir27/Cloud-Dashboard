@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   title: 'Cloud Dashboard',
   isLoading: true,
+  isNotificationPanelOpen: false, // Track if notification panel/popover is open
   realTimeNotificationCount: 0, // Track how many times addRealTimeNotification has been called
 
   // Current snapshot counts
@@ -164,6 +165,9 @@ export const dashboardSlice = createSlice({
     setLoading: (state, action) => {
       state.isLoading = action.payload
     },
+    setNotificationPanelOpen: (state, action) => {
+      state.isNotificationPanelOpen = action.payload
+    },
     addNotification: (state, action) => {
       state.notifications.unshift({
         id: Date.now(),
@@ -201,7 +205,7 @@ export const dashboardSlice = createSlice({
       // For the first 2 calls (30 seconds x 2), use the original logic
       if (state.realTimeNotificationCount <= 2) {
         notificationMessage = "EC2 Instance i-12345 changed from Restarting to Running"
-        notificationType = "info"
+        notificationType = "success"
 
         // Update EC2 Instance Status chart data (same logic for all notifications)
         const ec2StatusChart = state.charts.find(chart => chart.heading === "EC2 Instance Status")
@@ -262,6 +266,7 @@ export const {
   updateTitle,
   updateMetrics,
   setLoading,
+  setNotificationPanelOpen,
   addNotification,
   removeNotification,
   clearNotifications,

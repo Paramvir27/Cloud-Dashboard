@@ -1,6 +1,6 @@
 [
   {
-    "heading": "Resource Distribution",
+    "heading": "Active Resources Distribution",
     "description": "Current snapshot of resource types",
     "type": "donut",
     "size": "1/2",

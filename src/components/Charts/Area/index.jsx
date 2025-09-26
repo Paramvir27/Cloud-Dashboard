@@ -9,9 +9,9 @@ const AreaChartComponent = ({ data }) => {
         height={400}
         data={data}
         margin={{
-          top: 10,
+          top: 20,
           right: 30,
-          left: 0,
+          left: -20,
           bottom: 0,
         }}
       >

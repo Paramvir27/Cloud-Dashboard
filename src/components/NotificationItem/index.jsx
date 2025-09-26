@@ -1,5 +1,5 @@
 import React from 'react'
-import { AlertTriangle, AlertCircle, Info, X } from 'lucide-react'
+import { AlertTriangle, AlertCircle, Info, CheckCircle, X } from 'lucide-react'
 import styles from './style.module.css'
 
 const NotificationItem = ({ notification, onDelete }) => {
@@ -9,6 +9,8 @@ const NotificationItem = ({ notification, onDelete }) => {
         return <AlertCircle size={16} className={styles.iconError} />
       case 'warning':
         return <AlertTriangle size={16} className={styles.iconWarning} />
+      case 'success':
+        return <CheckCircle size={16} className={styles.iconSuccess} />
       case 'info':
       default:
         return <Info size={16} className={styles.iconInfo} />

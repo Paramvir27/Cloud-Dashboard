@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   title: 'Cloud Dashboard',
   isLoading: true,
+  realTimeNotificationCount: 0, // Track how many times addRealTimeNotification has been called
 
   // Current snapshot counts
   counts: [
@@ -114,24 +115,41 @@ const initialState = {
     {
       id: 1,
       type: "warning",
-      message: "EC2 Instance i-02345 stopped unexpectedly",
+      message: "EC2 Instance i-02345 stopped unexpectedly (1 of 4 running instances affected)",
       time: "Just now",
       isRead: false,
     },
     {
       id: 2,
       type: "error",
-      message: "Lambda function 'processData' had 2 failed invocations",
+      message: "Lambda function 'processData' had 2 failed invocations (1 of 8 functions affected)",
       time: "5 minutes ago",
       isRead: false,
     },
     {
       id: 3,
       type: "info",
-      message: "S3 bucket 'user-uploads' storage usage reached 120 GB",
+      message: "S3 bucket 'user-uploads' storage usage reached 120 GB (1 of 3 buckets)",
       time: "10 minutes ago",
       isRead: false,
     },
+  ],
+
+  // Array of random notifications to cycle through after first 2 calls
+  randomNotifications: [
+    {
+      type: "info",
+      message: "Auto-scaling group launched new EC2 instance i-98765",
+    },
+    {
+      type: "warning",
+      message: "Lambda function 'data-processor' memory usage approaching limit",
+  
+    },
+    {
+      type: "success",
+      message: "S3 bucket 'user-uploads' lifecycle policy applied successfully",
+    }
   ],
 };
 
@@ -173,6 +191,69 @@ export const dashboardSlice = createSlice({
       if (notification) {
         notification.isRead = true
       }
+    },
+    addRealTimeNotification: (state) => {
+      // Increment the counter
+      state.realTimeNotificationCount++
+
+      let notificationMessage, notificationType
+
+      // For the first 2 calls (30 seconds x 2), use the original logic
+      if (state.realTimeNotificationCount <= 2) {
+        notificationMessage = "EC2 Instance i-12345 changed from Restarting to Running"
+        notificationType = "info"
+
+        // Update EC2 Instance Status chart data (same logic for all notifications)
+        const ec2StatusChart = state.charts.find(chart => chart.heading === "EC2 Instance Status")
+        if (ec2StatusChart) {
+          const restartingData = ec2StatusChart.data.find(item => item.name === "Restarting")
+          const runningData = ec2StatusChart.data.find(item => item.name === "Running")
+
+          if (restartingData && restartingData.instances > 0) {
+            restartingData.instances--
+          }
+          if (runningData) {
+            runningData.instances++
+          }
+        }
+
+        // Update Resource Distribution chart (same logic for all notifications)
+        const resourceDistChart = state.charts.find(chart => chart.heading === "Resource Distribution")
+        if (resourceDistChart) {
+          const ec2Data = resourceDistChart.data.find(item => item.name === "EC2 Instances")
+          if (ec2Data) {
+            ec2Data.value++
+          }
+        }
+
+        // Update count cards (same logic for all notifications)
+        const totalActiveResourcesCount = state.counts.find(count => count.heading === "Total Active Resources")
+        if (totalActiveResourcesCount) {
+          totalActiveResourcesCount.count++
+        }
+
+        const runningEC2Count = state.counts.find(count => count.heading === "Running EC2 Instances")
+        if (runningEC2Count) {
+          runningEC2Count.count++
+        }
+      } else {
+        // After first 2 calls, use random notifications from the array
+        const randomIndex = Math.floor(Math.random() * state.randomNotifications.length)
+        const randomNotification = state.randomNotifications[randomIndex]
+        notificationMessage = randomNotification.message
+        notificationType = randomNotification.type
+      }
+
+      // Add the notification
+      state.notifications.unshift({
+        id: Date.now(),
+        type: notificationType,
+        message: notificationMessage,
+        time: "Just now",
+        isRead: false
+      })
+
+
     }
   }
 })
@@ -185,7 +266,8 @@ export const {
   removeNotification,
   clearNotifications,
   markAllNotificationsAsRead,
-  markNotificationAsRead
+  markNotificationAsRead,
+  addRealTimeNotification
 } = dashboardSlice.actions
 
 export default dashboardSlice.reducer

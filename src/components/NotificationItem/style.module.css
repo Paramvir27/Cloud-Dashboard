@@ -53,6 +53,10 @@
   color: var(--info);
 }
 
+.iconSuccess {
+  color: var(--success);
+}
+
 .textContent {
   flex: 1;
   min-width: 0;
@@ -114,4 +118,8 @@
 
 .notificationInfo {
   border-left-color: var(--info);
+}
+
+.notificationSuccess {
+  border-left-color: var(--success);
 }

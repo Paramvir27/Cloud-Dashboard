@@ -44,7 +44,7 @@
   bottom: 0;
   background: linear-gradient(90deg, 
     transparent 0%, 
-    rgba(255, 255, 255, 0.1) 50%, 
+    var(--header-glass-overlay) 50%, 
     transparent 100%
   );
   animation: skeletonShimmer 2s infinite ease-in-out;
@@ -133,12 +133,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 22px;
-  background: rgba(26, 26, 46, 0.85);
+  padding: var(--spacing-md) var(--header-padding-x);
+  background: var(--header-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-primary);
-  min-height: 70px;
+  min-height: var(--header-height);
 }
 
 .skeletonContentWrapper {
@@ -202,7 +202,7 @@
   }
   
   .skeletonHeader {
-    padding: 16px;
+    padding: var(--spacing-md);
   }
   
   .skeletonCountWrapper {

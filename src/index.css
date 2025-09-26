@@ -3,31 +3,12 @@
 :root {
   font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
 
-  /* Light Theme Colors */
-  --primary-color: #c03535;
-  
-  /* Dark Theme Variables */
-  --bg-primary: #0f0f23;          /* Main background */
-  --bg-secondary: #1a1a2e;        /* Card/component backgrounds */
-  --bg-tertiary: #16213e;         /* Elevated surfaces */
-  --bg-hover: #252547;            /* Hover states */
-  
-  /* Text Colors */
-  --text-primary: #ffffff;        /* Primary text */
-  --text-secondary: #b4b4c7;      /* Secondary text */
-  --text-muted: #8b8ba3;          /* Muted/disabled text */
-  --text-inverse: #0f0f23;        /* Text on light backgrounds */
-  
   /* Accent Colors (Blue Theme) */
   --accent-primary: #3b82f6;      /* Primary blue */
   --accent-secondary: #2563eb;    /* Darker blue */
   --accent-light: #60a5fa;        /* Light blue */
   --accent-lighter: #93c5fd;      /* Very light blue */
   --accent-hover: #1d4ed8;        /* Blue hover state */
-  
-  /* Border Colors */
-  --border-primary: #374151;      /* Main borders */
-  --border-secondary: #4b5563;    /* Secondary borders */
   --border-accent: #3b82f6;       /* Accent borders */
   
   /* Status Colors */
@@ -44,12 +25,6 @@
   --chart-quinary: #ffbb45;       /* Orange */
   --chart-senary: #ff5b5b;        /* Red */
   
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
-  
   /* Spacing */
   --spacing-xs: 0.25rem;   /* 4px */
   --spacing-sm: 0.5rem;    /* 8px */
@@ -63,6 +38,90 @@
   --radius-md: 0.5rem;     /* 8px */
   --radius-lg: 0.75rem;    /* 12px */
   --radius-xl: 1rem;       /* 16px */
+  
+  /* Typography */
+  --font-size-sm: 0.875rem;    /* 14px */
+  --font-size-md: 1rem;        /* 16px */
+  --font-size-lg: 1.25rem;     /* 20px */
+  --font-size-xl: 1.5rem;      /* 24px */
+  
+  /* Header layout */
+  --header-height: 70px;
+  --header-padding-x: 22px;
+}
+
+/* Light Theme */
+:root.light-theme {
+  /* Background colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --bg-hover: #e2e8f0;
+  
+  /* Text colors */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-inverse: #ffffff;
+  
+  /* Border colors */
+  --border-primary: #e2e8f0;
+  --border-secondary: #cbd5e1;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  
+  /* Header specific light theme */
+  --header-bg: rgba(248, 250, 252, 0.85);
+  --header-glass-overlay: rgba(0, 0, 0, 0.05);
+  --header-glass-border: rgba(0, 0, 0, 0.1);
+  --header-glass-border-hover: rgba(0, 0, 0, 0.15);
+  --header-glass-bg-hover: rgba(0, 0, 0, 0.1);
+  --header-inset-highlight: rgba(255, 255, 255, 0.8);
+  --header-notification-bg: rgba(59, 130, 246, 0.3);
+  --focus-ring: rgba(59, 130, 246, 0.3);
+  --select-item-hover: rgba(59, 130, 246, 0.2);
+  --select-item-selected: rgba(59, 130, 246, 0.3);
+}
+
+/* Dark Theme */
+:root.dark-theme {
+  /* Background colors */
+  --bg-primary: #0f0f23;
+  --bg-secondary: #1a1a2e;
+  --bg-tertiary: #16213e;
+  --bg-hover: #252547;
+  
+  /* Text colors */
+  --text-primary: #ffffff;
+  --text-secondary: #b4b4c7;
+  --text-muted: #8b8ba3;
+  --text-inverse: #0f0f23;
+  
+  /* Border colors */
+  --border-primary: #374151;
+  --border-secondary: #4b5563;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+  
+  /* Header specific dark theme */
+  --header-bg: rgba(26, 26, 46, 0.85);
+  --header-glass-overlay: rgba(255, 255, 255, 0.1);
+  --header-glass-border: rgba(255, 255, 255, 0.2);
+  --header-glass-border-hover: rgba(255, 255, 255, 0.3);
+  --header-glass-bg-hover: rgba(255, 255, 255, 0.15);
+  --header-inset-highlight: rgba(255, 255, 255, 0.1);
+  --header-notification-bg: rgba(59, 130, 246, 0.2);
+  --focus-ring: rgba(59, 130, 246, 0.2);
+  --select-item-hover: rgba(59, 130, 246, 0.2);
+  --select-item-selected: rgba(59, 130, 246, 0.3);
 }
 
 * {

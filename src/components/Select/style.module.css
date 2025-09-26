@@ -22,8 +22,8 @@
   line-height: 1.4;
   height: 40px;
   gap: var(--spacing-xs);
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--header-glass-overlay);
+  border: 1px solid var(--header-glass-border);
   color: var(--text-primary);
   cursor: pointer;
   transition: all 0.2s ease;
@@ -33,18 +33,18 @@
 }
 
 .selectTrigger:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: var(--header-glass-bg-hover);
+  border-color: var(--header-glass-border-hover);
   box-shadow: var(--shadow-sm);
 }
 
 .selectTrigger:focus {
   border-color: var(--accent-primary);
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 0 0 2px var(--focus-ring);
 }
 
 .selectTrigger[data-state="open"] {
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--header-glass-bg-hover);
   border-color: var(--accent-primary);
 }
 
@@ -102,12 +102,12 @@
 }
 
 .selectItem[data-highlighted] {
-  background: rgba(59, 130, 246, 0.2);
+  background: var(--select-item-hover);
   color: var(--text-primary);
 }
 
 .selectItem[data-state="checked"] {
-  background: rgba(59, 130, 246, 0.3);
+  background: var(--select-item-selected);
   color: var(--text-primary);
 }
 

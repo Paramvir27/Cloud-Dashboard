@@ -5,6 +5,7 @@ import logo from '../../assets/logo.svg'
 import Popover from '../Popover'
 import NotificationsList from '../NotificationsList'
 import Select from '../Select'
+import { ThemeToggle } from '../ThemeToggle'
 import { markAllNotificationsAsRead, setNotificationPanelOpen, setSelectedRegion } from '../../store/slices/dashboardSlice'
 import styles from './style.module.css'
 
@@ -53,6 +54,7 @@ const Header = ({ onNotificationOpen }) => {
             placeholder="Select region..."
           />
         </div>
+        <ThemeToggle />
         <Popover
           onOpenChange={handlePopoverOpenChange}
           trigger={

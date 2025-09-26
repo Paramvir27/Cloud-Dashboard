@@ -3,9 +3,11 @@ import regions from '../../constants/regions.json'
 import counters from '../../constants/counters.json'
 import charts from '../../constants/charts.json'
 import notificationsData from '../../constants/notifications.json'
+import { changeTheme } from '../../utils/theme'
 
 const initialState = {
   title: 'Cloud Dashboard',
+  theme: 'dark',
   isLoading: true,
   isNotificationPanelOpen: false, // Track if notification panel/popover is open
   realTimeNotificationCount: 0, // Track how many times addRealTimeNotification has been called
@@ -58,6 +60,11 @@ export const dashboardSlice = createSlice({
       if (notification) {
         notification.isRead = true
       }
+    },
+    toggleTheme: (state) => {
+      const theme = state.theme === 'light' ? 'dark' : 'light';
+      state.theme = theme;
+      changeTheme(theme);
     },
     addRealTimeNotification: (state) => {
       // Increment the counter
@@ -118,7 +125,8 @@ export const {
   markAllNotificationsAsRead,
   markNotificationAsRead,
   addRealTimeNotification,
-  setSelectedRegion
+  setSelectedRegion,
+  toggleTheme
 } = dashboardSlice.actions
 
 export default dashboardSlice.reducer

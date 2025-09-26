@@ -21,7 +21,7 @@ const initialState = {
     {
       heading: "Active Lambda Functions",
       description: "Lambda functions currently deployed",
-      count: 7,
+      count: 8,
       size: "1/4",
     },
     {
@@ -40,8 +40,8 @@ const initialState = {
       type: "donut",
       size: "1/2",
       data: [
-        { name: "EC2 Instances", value: 5 },
-        { name: "Lambda Functions", value: 7 },
+        { name: "EC2 Instances", value: 4 },
+        { name: "Lambda Functions", value: 8 },
         { name: "S3 Buckets", value: 3 },
       ],
     },

@@ -9,6 +9,10 @@
     overflow-x: hidden;
 }
 
+.dashboardWrapper {
+    width: 100%;
+}
+
 /* Card width classes for flexible layout */
 .cardFull {
     grid-column: span 12; /* Full row - 1 card */

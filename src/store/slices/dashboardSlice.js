@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   title: 'Cloud Dashboard',
-  isLoading: false,
+  isLoading: true,
 
   // Current snapshot counts
   counts: [

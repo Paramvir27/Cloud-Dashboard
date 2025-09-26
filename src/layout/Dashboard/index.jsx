@@ -1,15 +1,26 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import Header from '../../components/Header'
 import ChartComponent from '../../components/Charts'
 import Card from '../../components/Card'
 import Count from '../../components/Counters'
+import Skeleton from '../../components/Skeleton'
+import { setLoading } from '../../store/slices/dashboardSlice'
 import styles from './style.module.css'
 
 const DashboardLayout = () => {
-  const { counts, charts } = useSelector((state) => state.dashboard)
+  const dispatch = useDispatch()
+  const { counts, charts, isLoading } = useSelector((state) => state.dashboard)
 
-  // Size mapping function
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      dispatch(setLoading(false))
+    }, 1000)
+
+    return () => clearTimeout(timer)
+  }, [dispatch])
+
+
   const getSizeClass = (size) => {
     switch (size) {
       case '1':
@@ -23,6 +34,10 @@ const DashboardLayout = () => {
       default:
         return styles.cardFull
     }
+  }
+
+  if (isLoading) {
+    return <Skeleton variant="dashboard" />
   }
 
   return (

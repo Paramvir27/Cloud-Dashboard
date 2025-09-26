@@ -4,17 +4,24 @@ import { Bell } from 'lucide-react'
 import logo from '../../assets/logo.svg'
 import Popover from '../Popover'
 import NotificationsList from '../NotificationsList'
-import { markAllNotificationsAsRead, setNotificationPanelOpen } from '../../store/slices/dashboardSlice'
+import Select from '../Select'
+import { markAllNotificationsAsRead, setNotificationPanelOpen, setSelectedRegion } from '../../store/slices/dashboardSlice'
 import styles from './style.module.css'
 
 const Header = ({ onNotificationOpen }) => {
   const dispatch = useDispatch()
   const notifications = useSelector(state => state.dashboard.notifications)
+  const selectedRegion = useSelector(state => state.dashboard.selectedRegion)
+  const regions = useSelector(state => state.dashboard.regions)
   const unreadNotifications = notifications.filter(n => !n.isRead)
   const hasUnreadNotifications = unreadNotifications.length > 0
 
+  const handleRegionChange = (newRegion) => {
+    dispatch(setSelectedRegion(newRegion))
+  }
+
   const handlePopoverOpenChange = (open) => {
-    // Update Redux state
+
     dispatch(setNotificationPanelOpen(open))
 
     if (open) {
@@ -38,6 +45,14 @@ const Header = ({ onNotificationOpen }) => {
         </div>
       </div>
       <div className={styles.rightSection}>
+        <div className={styles.regionSelect}>
+          <Select
+            value={selectedRegion}
+            onValueChange={handleRegionChange}
+            options={regions}
+            placeholder="Select region..."
+          />
+        </div>
         <Popover
           onOpenChange={handlePopoverOpenChange}
           trigger={

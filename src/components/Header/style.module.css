@@ -65,8 +65,13 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  min-width: 200px;
+  min-width: 240px;
   justify-content: flex-end;
+}
+
+.regionSelect {
+  display: flex;
+  align-items: center;
 }
 
 .notificationButton {
@@ -144,7 +149,8 @@
   }
   
   .rightSection {
-    min-width: 150px;
+    min-width: 200px;
+    gap: 12px;
   }
   
   .notificationButton {

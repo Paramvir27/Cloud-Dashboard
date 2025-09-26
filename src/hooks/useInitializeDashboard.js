@@ -6,14 +6,16 @@ const useInitializeDashboard = () => {
   const dispatch = useDispatch()
   const isLoading = useSelector((state) => state.dashboard.isLoading)
 
-  // Handle loading state initialization
+  // Handle loading state changes - whenever isLoading becomes true, set it to false after 1 second
   useEffect(() => {
-    const timer = setTimeout(() => {
-      dispatch(setLoading(false))
-    }, 1000)
+    if (isLoading) {
+      const timer = setTimeout(() => {
+        dispatch(setLoading(false))
+      }, 1000)
 
-    return () => clearTimeout(timer)
-  }, [dispatch])
+      return () => clearTimeout(timer)
+    }
+  }, [isLoading, dispatch])
 
   // Handle real-time notifications interval
   useEffect(() => {

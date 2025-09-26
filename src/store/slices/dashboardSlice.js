@@ -1,10 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
+import regions from '../../constants/regions.json'
 
 const initialState = {
   title: 'Cloud Dashboard',
   isLoading: true,
   isNotificationPanelOpen: false, // Track if notification panel/popover is open
   realTimeNotificationCount: 0, // Track how many times addRealTimeNotification has been called
+  selectedRegion: 'us-east-1', // Current selected region
+  regions: regions, // Available regions list
 
   // Current snapshot counts
   counts: [
@@ -256,8 +259,10 @@ export const dashboardSlice = createSlice({
         time: "Just now",
         isRead: false
       })
-
-
+    },
+    setSelectedRegion: (state, action) => {
+      state.selectedRegion = action.payload
+      state.isLoading = true
     }
   }
 })
@@ -272,7 +277,8 @@ export const {
   clearNotifications,
   markAllNotificationsAsRead,
   markNotificationAsRead,
-  addRealTimeNotification
+  addRealTimeNotification,
+  setSelectedRegion
 } = dashboardSlice.actions
 
 export default dashboardSlice.reducer

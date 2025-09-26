@@ -1,0 +1,117 @@
+.notificationItem {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-left: 3px solid var(--border-primary);
+  background: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.2s ease;
+  min-height: 56px;
+  margin-left: 0;
+  position: relative;
+}
+
+.notificationItem:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.notificationItem:last-child {
+  border-bottom: none;
+}
+
+
+.notificationItem:last-child {
+  border-bottom-left-radius: var(--radius-lg);
+  border-bottom-right-radius: var(--radius-lg);
+}
+
+.notificationContent {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  flex: 1;
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.iconError {
+  color: var(--error);
+}
+
+.iconWarning {
+  color: var(--warning);
+}
+
+.iconInfo {
+  color: var(--info);
+}
+
+.textContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.message {
+  color: var(--text-primary);
+  font-size: 13px;
+  line-height: 1.3;
+  margin: 0 0 2px 0;
+  word-wrap: break-word;
+  font-weight: 400;
+}
+
+.time {
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.deleteButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  margin-left: var(--spacing-sm);
+  opacity: 0;
+}
+
+.notificationItem:hover .deleteButton {
+  opacity: 1;
+}
+
+.deleteButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+}
+
+.deleteButton:active {
+  transform: scale(0.95);
+}
+
+/* Type-specific border colors */
+.notificationError {
+  border-left-color: var(--error);
+}
+
+.notificationWarning {
+  border-left-color: var(--warning);
+}
+
+.notificationInfo {
+  border-left-color: var(--info);
+}

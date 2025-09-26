@@ -1,8 +1,24 @@
 import React from 'react'
-import styles from './style.module.css'
+import { useSelector, useDispatch } from 'react-redux'
+import { Bell } from 'lucide-react'
 import logo from '../../assets/logo.svg'
+import Popover from '../Popover'
+import NotificationsList from '../NotificationsList'
+import { markAllNotificationsAsRead } from '../../store/slices/dashboardSlice'
+import styles from './style.module.css'
 
 const Header = () => {
+  const dispatch = useDispatch()
+  const notifications = useSelector(state => state.dashboard.notifications)
+  const unreadNotifications = notifications.filter(n => !n.isRead)
+  const hasUnreadNotifications = unreadNotifications.length > 0
+
+  const handlePopoverOpenChange = (open) => {
+    if (open && hasUnreadNotifications) {
+      dispatch(markAllNotificationsAsRead())
+    }
+  }
+
   return (
     <header className={styles.headerWrapper}>
       <div className={styles.leftSection}>
@@ -12,7 +28,20 @@ const Header = () => {
         </div>
       </div>
       <div className={styles.rightSection}>
-        {/* Future additions will go here */}
+        <Popover
+          onOpenChange={handlePopoverOpenChange}
+          trigger={
+            <button 
+              className={`${styles.notificationButton} ${hasUnreadNotifications ? styles.hasNotifications : ''}`}
+              aria-label="Notifications"
+            >
+              <Bell size={20} />
+              {hasUnreadNotifications && <span className={styles.notificationBadge}>{unreadNotifications.length}</span>}
+            </button>
+          }
+        >
+          <NotificationsList />
+        </Popover>
       </div>
     </header>
   )

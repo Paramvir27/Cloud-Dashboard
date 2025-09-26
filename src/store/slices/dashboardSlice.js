@@ -112,19 +112,25 @@ const initialState = {
   // Recent notifications / alerts
   notifications: [
     {
+      id: 1,
       type: "warning",
       message: "EC2 Instance i-02345 stopped unexpectedly",
       time: "Just now",
+      isRead: false,
     },
     {
+      id: 2,
       type: "error",
       message: "Lambda function 'processData' had 2 failed invocations",
       time: "5 minutes ago",
+      isRead: false,
     },
     {
+      id: 3,
       type: "info",
-      message: "S3 bucket 'user-uploads' storage usage reached 119 GB",
+      message: "S3 bucket 'user-uploads' storage usage reached 120 GB",
       time: "10 minutes ago",
+      isRead: false,
     },
   ],
 };
@@ -141,10 +147,12 @@ export const dashboardSlice = createSlice({
       state.isLoading = action.payload
     },
     addNotification: (state, action) => {
-      state.notifications.push({
+      state.notifications.unshift({
         id: Date.now(),
-        message: action.payload,
-        timestamp: new Date().toISOString()
+        type: action.payload.type || "info",
+        message: action.payload.message,
+        time: action.payload.time || "Just now",
+        isRead: false
       })
     },
     removeNotification: (state, action) => {
@@ -154,6 +162,17 @@ export const dashboardSlice = createSlice({
     },
     clearNotifications: (state) => {
       state.notifications = []
+    },
+    markAllNotificationsAsRead: (state) => {
+      state.notifications.forEach(notification => {
+        notification.isRead = true
+      })
+    },
+    markNotificationAsRead: (state, action) => {
+      const notification = state.notifications.find(n => n.id === action.payload)
+      if (notification) {
+        notification.isRead = true
+      }
     }
   }
 })
@@ -164,7 +183,9 @@ export const {
   setLoading,
   addNotification,
   removeNotification,
-  clearNotifications
+  clearNotifications,
+  markAllNotificationsAsRead,
+  markNotificationAsRead
 } = dashboardSlice.actions
 
 export default dashboardSlice.reducer
